@@ -1,18 +1,34 @@
 ;ティラノスクリプトサンプルゲーム
 
 *start
+;[freeimage  layer="base"  ]
+;[freeimage  layer="2"  ]
 
-[cm  ]
-[clearfix]
-[start_keyconfig]
+;@layopt layer=message0 visible=false
+[layopt layer=0 visible=true]
+[layopt layer=1 visible=true]
+[layopt layer=2 visible=true]
 
-[bg storage="room.jpg" time="100"]
+[bg layer=0 storage="room.jpg" time="100"]
 
-#
+;キャラ定義
+[chara_new name="akane" storage="chara/akane/normal.png" jname="あかね"]
+
+[cm]
+
+[position layer=message0 width=800 height=300 top=535 left=250 ]
+[position layer=message0 page=fore frame="frame1.png" margint="45" marginl="40" marginr="70" marginb="60"]
+
+[ptext name="chara_name_area" layer=message0 width="200" color=white x=275 y=537 size=28]
+[chara_config ptext="chara_name_area"]
+
+@wait time = 100
+
+#akane
 今日は、ティラノスクリプトに、
-JavaScriptでGPT3.5のAPIを組み込んでみました。
+JavaScriptでGPT3.5のAPIを組み込んでみました。[p]
 自由にしゃべってみましょう。[p]
-#
+#akane
 というわけで、何か御用ですか？[p]
 *input
 [cm]
@@ -55,6 +71,9 @@ var data = JSON.stringify({
 system_input: "ユーザーを「わが師」と呼びます。返答は５０字以内です。名前はケレス。一人称は僕。慇懃で丁寧です。手に持っているのは名刺です。好きなものは我が師。例「これは技術デモです。我が師」",
 user_input: tf.test
 });
+
+
+
 xhr.send(data);
 [endscript]
 [s] ; この部分でスクリプトを止める
