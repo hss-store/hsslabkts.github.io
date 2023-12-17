@@ -23,6 +23,7 @@
 [chara_face name="obasan" face="zutuu" storage="obasan13.png"]
 
 ; 変数設定.
+[eval exp="sno = 0"]
 [eval exp="f.situnin = 0"]
 [eval exp="f.kioku = 0"]
 [eval exp="f.kentousiki = 0"]
@@ -72,7 +73,7 @@
 [macro name="api_input"]
     [cm]
     ; シナリオの識別.
-    [eval exp="sce_no = %sno|0"]
+    [eval exp="sce_no = sno"]
     *retry
     ; 入力フォームとボタン作成.
     [edit name="tf.keityou_input" top=100 left=100 width=200]
@@ -114,6 +115,7 @@
     [s]
 
     *after_gpt
+    [cm]
     [named_dlg]
     [emb exp="tf.response"]
     [eval exp="sfb_no = m_no"]

@@ -27,7 +27,8 @@
 [playse storage="nare10.ogg"]
 おばあさんに声をかけてみましょう。[wait time=300][cm]
 
-[api_input sno=1]
+[eval exp="sno = 1"]
+[api_input]
 [s]
 
 
